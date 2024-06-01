@@ -25,20 +25,32 @@ export const ArticleParamsForm = ({
 	const rootRef = useRef<HTMLElement>(null);
 
 	useEffect(() => {
+		if (!isOpened) {
+			return;
+		}
+
 		const handleClickOutside = (event: MouseEvent) => {
 			const pathTree = event.composedPath();
 
-			if (isOpened && rootRef.current && !pathTree.includes(rootRef.current)) {
+			if (rootRef.current && !pathTree.includes(rootRef.current)) {
+				toggleOpenState?.();
+			}
+		};
+
+		const handleKeyDown = (event: KeyboardEvent) => {
+			if (event.key === 'Escape') {
 				toggleOpenState?.();
 			}
 		};
 
 		document.addEventListener('click', handleClickOutside);
+		document.addEventListener('keydown', handleKeyDown);
 
 		return () => {
 			document.removeEventListener('click', handleClickOutside);
+			document.removeEventListener('keydown', handleKeyDown);
 		};
-	}, [isOpened]);
+	}, [isOpened, toggleOpenState]);
 
 	const onSubmit = (event: FormEvent) => {
 		event.preventDefault();
