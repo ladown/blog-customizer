@@ -1,10 +1,4 @@
-export const fontFamilyClasses = [
-	'open-sans',
-	'ubuntu',
-	'cormorant-garamond',
-	'days-one',
-	'merriweather',
-] as const;
+export const fontFamilyClasses = ['open-sans', 'ubuntu', 'cormorant-garamond', 'days-one', 'merriweather'] as const;
 
 export type FontFamiliesClasses = (typeof fontFamilyClasses)[number];
 
@@ -173,6 +167,10 @@ export const defaultArticleState = {
 	fontColor: fontColors[0],
 	backgroundColor: backgroundColors[0],
 	contentWidth: contentWidthArr[0],
+	fontSizeOption: fontSizeOptions[0],
+};
+
+export const defaultFormState = {
 	fontSizeOption: fontSizeOptions[0],
 };
 
