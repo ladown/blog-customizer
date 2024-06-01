@@ -15,8 +15,10 @@ export const ArticleParamsForm = ({ isOpened, toggleOpenState }: IArticleParamsF
 	const rootRef = useRef<HTMLElement>(null);
 
 	useEffect(() => {
-		const handleClickOutside = ({ target }: MouseEvent) => {
-			if (isOpened && target instanceof Node && !rootRef.current?.contains(target)) {
+		const handleClickOutside = (event: MouseEvent) => {
+			const pathTree = event.composedPath();
+
+			if (isOpened && rootRef.current && !pathTree.includes(rootRef.current)) {
 				toggleOpenState();
 			}
 		};
