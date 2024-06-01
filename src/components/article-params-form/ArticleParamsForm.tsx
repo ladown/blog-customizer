@@ -1,9 +1,11 @@
 import clsx from 'clsx';
-import { ReactNode, useEffect, useRef } from 'react';
+import { ReactNode, useRef } from 'react';
 import type { FormEvent } from 'react';
 
 import { Button } from 'components/button';
 import { ArrowButton } from 'components/arrow-button';
+
+import { useCloseOnOverlay } from '../../hooks/useCloseOnOverlay';
 
 import styles from './ArticleParamsForm.module.scss';
 
@@ -24,33 +26,7 @@ export const ArticleParamsForm = ({
 }: IArticleParamsFormProps) => {
 	const rootRef = useRef<HTMLElement>(null);
 
-	useEffect(() => {
-		if (!isOpened) {
-			return;
-		}
-
-		const handleClickOutside = (event: MouseEvent) => {
-			const pathTree = event.composedPath();
-
-			if (rootRef.current && !pathTree.includes(rootRef.current)) {
-				toggleOpenState?.();
-			}
-		};
-
-		const handleKeyDown = (event: KeyboardEvent) => {
-			if (event.key === 'Escape') {
-				toggleOpenState?.();
-			}
-		};
-
-		document.addEventListener('click', handleClickOutside);
-		document.addEventListener('keydown', handleKeyDown);
-
-		return () => {
-			document.removeEventListener('click', handleClickOutside);
-			document.removeEventListener('keydown', handleKeyDown);
-		};
-	}, [isOpened, toggleOpenState]);
+	useCloseOnOverlay({ rootRef, isOpened, toggleOpenState });
 
 	const onSubmit = (event: FormEvent) => {
 		event.preventDefault();
