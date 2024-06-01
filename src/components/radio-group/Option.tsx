@@ -27,13 +27,7 @@ export const Option = (props: OptionProps) => {
 	const isChecked = value === selected.title;
 
 	return (
-		<div
-			className={styles.item}
-			key={value}
-			data-checked={isChecked}
-			data-testid={inputId}
-			tabIndex={0}
-			ref={optionRef}>
+		<div className={styles.item} key={value} data-checked={isChecked} data-testid={inputId} tabIndex={0} ref={optionRef}>
 			<input
 				className={styles.input}
 				type='radio'

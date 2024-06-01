@@ -21,13 +21,7 @@ const RadioGroupWithState = () => {
 
 	return (
 		<>
-			<RadioGroup
-				selected={selected}
-				name='radio'
-				onChange={setSelected}
-				options={options}
-				title='Название радиогруппы'
-			/>
+			<RadioGroup selected={selected} name='radio' onChange={setSelected} options={options} title='Название радиогруппы' />
 		</>
 	);
 };

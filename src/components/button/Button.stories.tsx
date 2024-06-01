@@ -13,16 +13,8 @@ export const ButtonStory: Story = {
 	render: () => {
 		return (
 			<>
-				<Button
-					title='Сбросить'
-					type='reset'
-					onClick={() => alert('клик на кнопку сбросить')}
-				/>
-				<Button
-					title='Применить'
-					type='submit'
-					onClick={() => alert('клик на кнопку применить')}
-				/>
+				<Button title='Сбросить' type='reset' onClick={() => alert('клик на кнопку сбросить')} />
+				<Button title='Применить' type='submit' onClick={() => alert('клик на кнопку применить')} />
 			</>
 		);
 	},
