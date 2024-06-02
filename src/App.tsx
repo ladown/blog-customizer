@@ -12,7 +12,6 @@ import {
 	fontColors,
 	backgroundColors,
 	contentWidthArr,
-	defaultFormState,
 } from './constants/articleProps';
 import { Text } from './components/text/Text';
 import { Separator } from './components/separator/Separator';
@@ -26,7 +25,7 @@ export type TState = Record<keyof ArticleStateType, OptionType>;
 export const App = () => {
 	const [formOpenState, setFormOpenState] = useState<boolean>(false);
 	const [articleState, setArticleState] = useState<TState>(defaultArticleState);
-	const [formState, setFormState] = useState<Partial<TState>>(defaultFormState);
+	const [formState, setFormState] = useState<Partial<TState>>(defaultArticleState);
 
 	const toggleOpenState = (): void => {
 		setFormOpenState(!formOpenState);
@@ -54,7 +53,7 @@ export const App = () => {
 
 	const handleReset = (): void => {
 		setArticleState(defaultArticleState);
-		setFormState(defaultFormState);
+		setFormState(defaultArticleState);
 	};
 
 	return (
@@ -87,7 +86,7 @@ export const App = () => {
 					onChange={handleFormStateUpdate('fontFamilyOption')}
 				/>
 				<RadioGroup
-					name='font-size'
+					name='radio'
 					title='рАЗМЕР шрифта'
 					options={fontSizeOptions}
 					selected={formState?.fontSizeOption || fontSizeOptions[0]}
