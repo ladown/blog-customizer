@@ -16,13 +16,13 @@ export const ArrowButton = ({ onClick, isOpened }: TArrowButtonProps) => {
 		onClick?.();
 	};
 	return (
-		<button
+		<div
 			className={clsx(styles.container, isOpened && styles.container_open)}
 			onClick={handleClick}
 			role='button'
 			aria-label='Открыть/Закрыть форму параметров статьи'
 		>
 			<img src={arrow} alt='иконка стрелочки' className={clsx(styles.arrow, isOpened && styles.arrow_open)} />
-		</button>
+		</div>
 	);
 };
