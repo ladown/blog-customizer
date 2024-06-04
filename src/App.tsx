@@ -7,12 +7,7 @@ import { defaultArticleState } from './constants/articleProps';
 import styles from './styles/index.module.scss';
 
 export const App = () => {
-	const [formOpenState, setFormOpenState] = useState(false);
 	const [articleState, setArticleState] = useState(defaultArticleState);
-
-	const toggleOpenState = (): void => {
-		setFormOpenState(!formOpenState);
-	};
 
 	return (
 		<main
@@ -26,11 +21,7 @@ export const App = () => {
 					'--bg-color': articleState.backgroundColor.value,
 				} as CSSProperties
 			}>
-			<ArticleParamsForm
-				isOpened={formOpenState}
-				toggleOpenState={toggleOpenState}
-				setArticleState={setArticleState}
-			/>
+			<ArticleParamsForm setArticleState={setArticleState} />
 			<Article />
 		</main>
 	);

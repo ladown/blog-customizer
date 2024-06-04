@@ -27,20 +27,19 @@ import { useCloseOnOverlay } from '../../hooks/useCloseOnOverlay';
 import styles from './ArticleParamsForm.module.scss';
 
 type IArticleParamsFormProps = {
-	isOpened: boolean;
-	toggleOpenState: () => void;
 	setArticleState: Dispatch<SetStateAction<ArticleStateType>>;
 };
 
 export const ArticleParamsForm = ({
-	isOpened,
-	toggleOpenState,
 	setArticleState,
 }: IArticleParamsFormProps) => {
-	const rootRef = useRef<HTMLDivElement>(null);
+	const [formOpenState, setFormOpenState] = useState(false);
 	const [formState, setFormState] = useState(defaultArticleState);
+	const rootRef = useRef<HTMLDivElement>(null);
 
-	useCloseOnOverlay({ rootRef, isOpened, toggleOpenState });
+	const toggleOpenState = (): void => {
+		setFormOpenState(!formOpenState);
+	};
 
 	const handleFormStateUpdate = (
 		selectedKey: keyof ArticleStateType
@@ -64,11 +63,16 @@ export const ArticleParamsForm = ({
 		setFormState(defaultArticleState);
 	};
 
+	useCloseOnOverlay({ rootRef, isOpened: formOpenState, toggleOpenState });
+
 	return (
 		<div ref={rootRef}>
-			<ArrowButton isOpened={isOpened} onClick={toggleOpenState} />
+			<ArrowButton isOpened={formOpenState} onClick={toggleOpenState} />
 			<aside
-				className={clsx(styles.container, isOpened && styles.container_open)}>
+				className={clsx(
+					styles.container,
+					formOpenState && styles.container_open
+				)}>
 				<form className={styles.form} onSubmit={onSubmit} onReset={handleReset}>
 					<Text as={'h2'} size={31} weight={800} uppercase={true}>
 						Задайте параметры
