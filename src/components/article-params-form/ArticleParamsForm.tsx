@@ -36,7 +36,9 @@ export const ArticleParamsForm = ({
 	return (
 		<>
 			<ArrowButton isOpened={isOpened} onClick={toggleOpenState} />
-			<aside ref={rootRef} className={clsx(styles.container, isOpened && styles.container_open)}>
+			<aside
+				ref={rootRef}
+				className={clsx(styles.container, isOpened && styles.container_open)}>
 				<form className={styles.form} onSubmit={onSubmit} onReset={handleReset}>
 					{children}
 					<div className={styles.bottomContainer}>

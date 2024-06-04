@@ -7,7 +7,11 @@ export type TUseCloseOnOverlay = {
 	rootRef: RefObject<HTMLElement>;
 };
 
-export const useCloseOnOverlay = ({ rootRef, isOpened, toggleOpenState }: TUseCloseOnOverlay) => {
+export const useCloseOnOverlay = ({
+	rootRef,
+	isOpened,
+	toggleOpenState,
+}: TUseCloseOnOverlay) => {
 	useEffect(() => {
 		if (!isOpened) {
 			return;

@@ -25,13 +25,16 @@ export type TState = Record<keyof ArticleStateType, OptionType>;
 export const App = () => {
 	const [formOpenState, setFormOpenState] = useState<boolean>(false);
 	const [articleState, setArticleState] = useState<TState>(defaultArticleState);
-	const [formState, setFormState] = useState<Partial<TState>>(defaultArticleState);
+	const [formState, setFormState] =
+		useState<Partial<TState>>(defaultArticleState);
 
 	const toggleOpenState = (): void => {
 		setFormOpenState(!formOpenState);
 	};
 
-	const handleFormStateUpdate = (key: keyof ArticleStateType): ((selected: OptionType) => void) => {
+	const handleFormStateUpdate = (
+		key: keyof ArticleStateType
+	): ((selected: OptionType) => void) => {
 		return (selected: OptionType) => {
 			setFormState((ctx) => ({
 				...ctx,
@@ -67,14 +70,12 @@ export const App = () => {
 					'--container-width': articleState.contentWidth.value,
 					'--bg-color': articleState.backgroundColor.value,
 				} as CSSProperties
-			}
-		>
+			}>
 			<ArticleParamsForm
 				isOpened={formOpenState}
 				toggleOpenState={toggleOpenState}
 				handleSubmit={handleParamsSubmit}
-				handleReset={handleReset}
-			>
+				handleReset={handleReset}>
 				<Text as={'h2'} size={31} weight={800} uppercase={true}>
 					Задайте параметры
 				</Text>

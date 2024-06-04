@@ -5,7 +5,10 @@ type UseEnterSubmit = {
 	placeholderRef: React.RefObject<HTMLDivElement>;
 };
 
-export const useEnterSubmit = ({ placeholderRef, onChange }: UseEnterSubmit) => {
+export const useEnterSubmit = ({
+	placeholderRef,
+	onChange,
+}: UseEnterSubmit) => {
 	useEffect(() => {
 		const placeholderEl = placeholderRef.current;
 		if (!placeholderEl) return;

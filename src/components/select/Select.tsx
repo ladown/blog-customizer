@@ -55,18 +55,33 @@ export const Select = (props: SelectProps) => {
 					</Text>
 				</>
 			)}
-			<div className={styles.selectWrapper} ref={rootRef} data-is-active={isOpen} data-testid='selectWrapper'>
-				<img src={arrowDown} alt='иконка стрелочки' className={clsx(styles.arrow, { [styles.arrow_open]: isOpen })} />
+			<div
+				className={styles.selectWrapper}
+				ref={rootRef}
+				data-is-active={isOpen}
+				data-testid='selectWrapper'>
+				<img
+					src={arrowDown}
+					alt='иконка стрелочки'
+					className={clsx(styles.arrow, { [styles.arrow_open]: isOpen })}
+				/>
 				<div
-					className={clsx(styles.placeholder, styles[selected?.optionClassName || ''])}
+					className={clsx(
+						styles.placeholder,
+						styles[selected?.optionClassName || '']
+					)}
 					data-status={status}
 					data-selected={!!selected?.value}
 					onClick={handlePlaceHolderClick}
 					role='button'
 					tabIndex={0}
-					ref={placeholderRef}
-				>
-					<Text family={isFontFamilyClass(selected?.className) ? selected?.className : undefined}>
+					ref={placeholderRef}>
+					<Text
+						family={
+							isFontFamilyClass(selected?.className)
+								? selected?.className
+								: undefined
+						}>
 						{selected?.title || placeholder}
 					</Text>
 				</div>
@@ -75,7 +90,11 @@ export const Select = (props: SelectProps) => {
 						{options
 							.filter((option) => selected?.value !== option.value)
 							.map((option) => (
-								<Option key={option.value} option={option} onClick={() => handleOptionClick(option)} />
+								<Option
+									key={option.value}
+									option={option}
+									onClick={() => handleOptionClick(option)}
+								/>
 							))}
 					</ul>
 				)}

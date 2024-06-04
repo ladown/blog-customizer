@@ -19,9 +19,12 @@ export const ArrowButton = ({ onClick, isOpened }: TArrowButtonProps) => {
 		<button
 			className={clsx(styles.container, isOpened && styles.container_open)}
 			onClick={handleClick}
-			aria-label='Открыть/Закрыть форму параметров статьи'
-		>
-			<img src={arrow} alt='иконка стрелочки' className={clsx(styles.arrow, isOpened && styles.arrow_open)} />
+			aria-label='Открыть/Закрыть форму параметров статьи'>
+			<img
+				src={arrow}
+				alt='иконка стрелочки'
+				className={clsx(styles.arrow, isOpened && styles.arrow_open)}
+			/>
 		</button>
 	);
 };

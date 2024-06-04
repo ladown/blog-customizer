@@ -21,7 +21,12 @@ const SelectWithState = () => {
 
 	return (
 		<>
-			<Select selected={selected} onChange={setSelected} options={options} title='Название радиогруппы' />
+			<Select
+				selected={selected}
+				onChange={setSelected}
+				options={options}
+				title='Название радиогруппы'
+			/>
 		</>
 	);
 };
