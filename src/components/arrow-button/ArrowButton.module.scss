@@ -12,10 +12,6 @@
 	border-right: 1px;
 	cursor: pointer;
 	transition: transform 0.5s ease;
-
-	&:focus {
-		outline: none;
-	}
 }
 
 .container_open {
