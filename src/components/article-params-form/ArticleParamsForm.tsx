@@ -38,8 +38,7 @@ export const ArticleParamsForm = ({
 	setArticleState,
 }: IArticleParamsFormProps) => {
 	const rootRef = useRef<HTMLDivElement>(null);
-	const [formState, setFormState] =
-		useState<Partial<ArticleStateType>>(defaultArticleState);
+	const [formState, setFormState] = useState(defaultArticleState);
 
 	useCloseOnOverlay({ rootRef, isOpened, toggleOpenState });
 
@@ -85,21 +84,21 @@ export const ArticleParamsForm = ({
 						title='шрифт'
 						placeholder='Выберите шрифт'
 						options={fontFamilyOptions}
-						selected={formState?.fontFamilyOption || null}
+						selected={formState.fontFamilyOption || null}
 						onChange={handleFormStateUpdate('fontFamilyOption')}
 					/>
 					<RadioGroup
 						name='radio'
 						title='рАЗМЕР шрифта'
 						options={fontSizeOptions}
-						selected={formState?.fontSizeOption || fontSizeOptions[0]}
+						selected={formState.fontSizeOption || fontSizeOptions[0]}
 						onChange={handleFormStateUpdate('fontSizeOption')}
 					/>
 					<Select
 						title='Цвет шрифта'
 						placeholder='Выберите цвет шрифта'
 						options={fontColors}
-						selected={formState?.fontColor || null}
+						selected={formState.fontColor || null}
 						onChange={handleFormStateUpdate('fontColor')}
 					/>
 					<Separator />
@@ -107,14 +106,14 @@ export const ArticleParamsForm = ({
 						title='Цвет фона'
 						placeholder='Выберите цвет фона'
 						options={backgroundColors}
-						selected={formState?.backgroundColor || null}
+						selected={formState.backgroundColor || null}
 						onChange={handleFormStateUpdate('backgroundColor')}
 					/>
 					<Select
 						title='Ширина контента '
 						placeholder='Выберите ширину контента'
 						options={contentWidthArr}
-						selected={formState?.contentWidth || null}
+						selected={formState.contentWidth || null}
 						onChange={handleFormStateUpdate('contentWidth')}
 					/>
 					<div className={styles.bottomContainer}>
