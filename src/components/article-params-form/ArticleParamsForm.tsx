@@ -44,12 +44,12 @@ export const ArticleParamsForm = ({
 	useCloseOnOverlay({ rootRef, isOpened, toggleOpenState });
 
 	const handleFormStateUpdate = (
-		key: keyof ArticleStateType
+		selectedKey: keyof ArticleStateType
 	): ((selected: OptionType) => void) => {
 		return (selected: OptionType) => {
 			setFormState((ctx) => ({
 				...ctx,
-				[key]: selected,
+				[selectedKey]: selected,
 			}));
 		};
 	};
