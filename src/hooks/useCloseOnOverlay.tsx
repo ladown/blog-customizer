@@ -18,9 +18,11 @@ export const useCloseOnOverlay = ({
 		}
 
 		const handleClickOutside = (event: MouseEvent) => {
-			const pathTree = event.composedPath();
-
-			if (rootRef.current && !pathTree.includes(rootRef.current)) {
+			if (
+				rootRef.current &&
+				event.target instanceof Node &&
+				!rootRef.current?.contains(event.target)
+			) {
 				toggleOpenState?.();
 			}
 		};
@@ -31,12 +33,12 @@ export const useCloseOnOverlay = ({
 			}
 		};
 
-		document.addEventListener('click', handleClickOutside);
+		document.addEventListener('mousedown', handleClickOutside);
 		document.addEventListener('keydown', handleKeyDown);
 
 		return () => {
-			document.removeEventListener('click', handleClickOutside);
+			document.removeEventListener('mousedown', handleClickOutside);
 			document.removeEventListener('keydown', handleKeyDown);
 		};
-	}, [isOpened, toggleOpenState]);
+	}, [rootRef, isOpened, toggleOpenState]);
 };

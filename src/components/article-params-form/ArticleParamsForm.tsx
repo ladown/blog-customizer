@@ -37,7 +37,7 @@ export const ArticleParamsForm = ({
 	toggleOpenState,
 	setArticleState,
 }: IArticleParamsFormProps) => {
-	const rootRef = useRef<HTMLElement>(null);
+	const rootRef = useRef<HTMLDivElement>(null);
 	const [formState, setFormState] =
 		useState<Partial<ArticleStateType>>(defaultArticleState);
 
@@ -73,10 +73,9 @@ export const ArticleParamsForm = ({
 	};
 
 	return (
-		<>
+		<div ref={rootRef}>
 			<ArrowButton isOpened={isOpened} onClick={toggleOpenState} />
 			<aside
-				ref={rootRef}
 				className={clsx(styles.container, isOpened && styles.container_open)}>
 				<form className={styles.form} onSubmit={onSubmit} onReset={handleReset}>
 					<Text as={'h2'} size={31} weight={800} uppercase={true}>
@@ -124,6 +123,6 @@ export const ArticleParamsForm = ({
 					</div>
 				</form>
 			</aside>
-		</>
+		</div>
 	);
 };
