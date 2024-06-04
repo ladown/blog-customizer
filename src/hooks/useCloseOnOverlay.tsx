@@ -4,7 +4,7 @@ import type { RefObject } from 'react';
 export type TUseCloseOnOverlay = {
 	isOpened?: boolean;
 	toggleOpenState?: () => void;
-	rootRef: RefObject<HTMLElement>;
+	rootRef: RefObject<HTMLDivElement>;
 };
 
 export const useCloseOnOverlay = ({
