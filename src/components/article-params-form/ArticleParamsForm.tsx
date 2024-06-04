@@ -56,14 +56,7 @@ export const ArticleParamsForm = ({
 	const onSubmit = (event: FormEvent) => {
 		event.preventDefault();
 
-		Object.keys(formState).forEach((formStateKey) => {
-			setArticleState((ctx) => {
-				return {
-					...ctx,
-					[formStateKey]: formState[formStateKey as keyof ArticleStateType],
-				};
-			});
-		});
+		setArticleState(formState);
 	};
 
 	const handleReset = (): void => {
