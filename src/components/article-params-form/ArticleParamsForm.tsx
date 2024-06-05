@@ -45,8 +45,8 @@ export const ArticleParamsForm = ({
 		selectedKey: keyof ArticleStateType
 	): ((selected: OptionType) => void) => {
 		return (selected: OptionType) => {
-			setFormState((ctx) => ({
-				...ctx,
+			setFormState((state) => ({
+				...state,
 				[selectedKey]: selected,
 			}));
 		};
