@@ -33,12 +33,12 @@ type IArticleParamsFormProps = {
 export const ArticleParamsForm = ({
 	setArticleState,
 }: IArticleParamsFormProps) => {
-	const [formOpenState, setFormOpenState] = useState(false);
+	const [isFormOpen, setIsFormOpen] = useState(false);
 	const [formState, setFormState] = useState(defaultArticleState);
 	const rootRef = useRef<HTMLDivElement>(null);
 
 	const toggleOpenState = (): void => {
-		setFormOpenState(!formOpenState);
+		setIsFormOpen(!isFormOpen);
 	};
 
 	const handleFormStateUpdate = (
@@ -63,16 +63,13 @@ export const ArticleParamsForm = ({
 		setFormState(defaultArticleState);
 	};
 
-	useCloseOnOverlay({ rootRef, isOpened: formOpenState, toggleOpenState });
+	useCloseOnOverlay({ rootRef, isOpened: isFormOpen, toggleOpenState });
 
 	return (
 		<div ref={rootRef}>
-			<ArrowButton isOpened={formOpenState} onClick={toggleOpenState} />
+			<ArrowButton isOpened={isFormOpen} onClick={toggleOpenState} />
 			<aside
-				className={clsx(
-					styles.container,
-					formOpenState && styles.container_open
-				)}>
+				className={clsx(styles.container, isFormOpen && styles.container_open)}>
 				<form className={styles.form} onSubmit={onSubmit} onReset={handleReset}>
 					<Text as={'h2'} size={31} weight={800} uppercase={true}>
 						Задайте параметры
