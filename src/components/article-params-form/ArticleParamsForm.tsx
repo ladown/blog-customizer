@@ -81,21 +81,21 @@ export const ArticleParamsForm = ({
 						title='шрифт'
 						placeholder='Выберите шрифт'
 						options={fontFamilyOptions}
-						selected={formState.fontFamilyOption || null}
+						selected={formState.fontFamilyOption}
 						onChange={handleFormStateUpdate('fontFamilyOption')}
 					/>
 					<RadioGroup
 						name='radio'
 						title='рАЗМЕР шрифта'
 						options={fontSizeOptions}
-						selected={formState.fontSizeOption || fontSizeOptions[0]}
+						selected={formState.fontSizeOption}
 						onChange={handleFormStateUpdate('fontSizeOption')}
 					/>
 					<Select
 						title='Цвет шрифта'
 						placeholder='Выберите цвет шрифта'
 						options={fontColors}
-						selected={formState.fontColor || null}
+						selected={formState.fontColor}
 						onChange={handleFormStateUpdate('fontColor')}
 					/>
 					<Separator />
@@ -103,14 +103,14 @@ export const ArticleParamsForm = ({
 						title='Цвет фона'
 						placeholder='Выберите цвет фона'
 						options={backgroundColors}
-						selected={formState.backgroundColor || null}
+						selected={formState.backgroundColor}
 						onChange={handleFormStateUpdate('backgroundColor')}
 					/>
 					<Select
 						title='Ширина контента '
 						placeholder='Выберите ширину контента'
 						options={contentWidthArr}
-						selected={formState.contentWidth || null}
+						selected={formState.contentWidth}
 						onChange={handleFormStateUpdate('contentWidth')}
 					/>
 					<div className={styles.bottomContainer}>
