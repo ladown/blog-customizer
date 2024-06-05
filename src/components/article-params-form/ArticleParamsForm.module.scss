@@ -5,7 +5,7 @@
 	flex-flow: column nowrap;
 	width: 616px;
 	height: 100%;
-	overflow: hidden scroll;
+	overflow: hidden auto;
 	background-color: #ffffff;
 	border-right: 1px solid #000000;
 	transform: translate(-616px);
@@ -22,7 +22,7 @@
 	flex-direction: column;
 	gap: 50px;
 	box-sizing: border-box;
-	width: 616px;
+	width: 100%;
 	min-height: 0;
 	padding: 50px 31px;
 }
